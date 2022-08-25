@@ -1,14 +1,14 @@
 package com.bridgelabz;
 
 public class Contact {
-    public String firstName;
-    public String lastName;
-    public String address;
-    public String city;
-    public String state;
-    public String zip;
-    public String phoneNumber;
-    public String email;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String city;
+    private String state;
+    private int zip;
+    private long phoneNumber;
+    private String email;
 
     public String getFirstName() {
         return firstName;
@@ -50,19 +50,19 @@ public class Contact {
         this.state = state;
     }
 
-    public String getZip() {
+    public int getZip() {
         return zip;
     }
 
-    public void setZip(String zip) {
+    public void setZip(int zip) {
         this.zip = zip;
     }
 
-    public String getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -82,8 +82,8 @@ public class Contact {
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
-                ", zip='" + zip + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", zip=" + zip +
+                ", phoneNumber=" + phoneNumber +
                 ", email='" + email + '\'' +
                 '}';
     }
