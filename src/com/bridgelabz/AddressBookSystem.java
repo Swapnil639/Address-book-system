@@ -4,33 +4,39 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookSystem {
+    private String addressBookName;
     public static Scanner scanner = new Scanner(System.in);
-    static ArrayList<Contact> addressBook = new ArrayList<Contact>();
+    static ArrayList<Contact> addressBook = new ArrayList<>();
+
+    public String getAddressBookName() {
+        return addressBookName;
+    }
+
+    public void setAddressBookName(String addressBookName) {
+        this.addressBookName = addressBookName;
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book System !");
-        AddressBookSystem addressbooksystem = new AddressBookSystem();
-        addressbooksystem.addContactDetails();
+        AddressBookSystem addressbook = new AddressBookSystem();
+        addressbook.addContactDetails();
         boolean condition = true;
 
         while (condition == true) {
             System.out.println("1.Add" + "\n" + "2.Edit" + "\n" + "3.Delete" + "\n" + "4.AddMultipleContacts");
             int option = scanner.nextInt();
-
-
-
             switch (option) {
                 case 1:
-                    addressbooksystem.addContactDetails();
+                    addressbook.addContactDetails();
                     break;
                 case 2:
-                    addressbooksystem.editContactDetails();
+                    addressbook.editContactDetails();
                     break;
                 case 3:
-                    addressbooksystem.deleteContactDetails();
+                    addressbook.deleteContactDetails();
                     break;
                 case 4:
-                    addressbooksystem.addMultipleContact();
+                    addressbook.addMultipleContact();
                     break;
                 default:
                     System.out.println("Invalid Input");
@@ -38,11 +44,8 @@ public class AddressBookSystem {
         }
     }
 
-
     public static Contact addContactDetails() {
-
         Contact contact = new Contact();
-
         System.out.println("Enter First name");
         String firstName = scanner.next();
 
@@ -61,12 +64,10 @@ public class AddressBookSystem {
         System.out.println("Enter Zip code");
         int zip = scanner.nextInt();
 
-
         System.out.println("Enter Phone number");
         long phoneNumber = scanner.nextLong();
 
         System.out.println("Enter Email");
-
         String email = scanner.next();
 
         addressBook.add(contact);
@@ -74,10 +75,9 @@ public class AddressBookSystem {
         System.out.println("Successfully created contacts");
         return contact;
 
-
     }
 
-    public void editContactDetails() {
+    public static void editContactDetails() {
         System.out.println("Enter first name for edit:");
         String editName = scanner.next();
         for (int i = 0; i < addressBook.size(); i++) {
@@ -127,7 +127,7 @@ public class AddressBookSystem {
         }
     }
 
-    public void deleteContactDetails() {
+    public static void deleteContactDetails() {
         System.out.println("Confirm first name to delete contact");
         String confirmName = scanner.next();
         System.out.println(confirmName);
@@ -141,7 +141,7 @@ public class AddressBookSystem {
 
     }
 
-    public void addMultipleContact() {
+    public static void addMultipleContact() {
         System.out.println("Enter Number of Contacts to Add into Contact Book");
         int number = scanner.nextInt();
         for (int i = 0; i < number; i++) {
@@ -149,5 +149,7 @@ public class AddressBookSystem {
             System.out.println(i + 1 + " Contact added Successfully.. ");
         }
     }
+
+
 
 }
