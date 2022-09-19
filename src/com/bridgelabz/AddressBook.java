@@ -14,7 +14,7 @@ public class AddressBook {
 
         boolean condition = true;
         while (condition) {
-            System.out.println("\n" + "1.AddNewAddressBook" + "\n" + "2.AddContact" + "\n" + "3.EditContact" + "\n" + "4.DeleteContact" + "\n" + "5.AddMultipleContact" + "\n" + "6.ShowAddressBookDetails");
+            System.out.println("\n" + "1.AddNewAddressBook" + "\n" + "2.AddContact" + "\n" + "3.EditContact" + "\n" + "4.DeleteContact" + "\n" + "5.AddMultipleContact" + "\n" + "6.ShowAddressBookDetails" + "\n" + "7.SearchContactByCityOrState");
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
@@ -35,12 +35,16 @@ public class AddressBook {
                 case 6:
                     showAddressBookDetails();
                     break;
+                case 7:
+                    searchByCityOrState();
+                    break;
                 default:
                     System.out.println("Exit");
             }
         }
     }
 
+    // Method to add new address book
     public static void addNewAddressBook() {
         System.out.println("Enter the name of new address book");
         String bookName = scanner.next();
@@ -55,6 +59,7 @@ public class AddressBook {
         }
     }
 
+    // Method to add contact
     public static void addContact() {
         System.out.println("Enter the name of address book to add contact");
         String bookName = scanner.next();
@@ -67,6 +72,7 @@ public class AddressBook {
         }
     }
 
+    // Method to edit contact
     public static void editContact() {
         System.out.println("Enter the name of address book edit ");
         String bookName = scanner.next();
@@ -79,6 +85,7 @@ public class AddressBook {
         }
     }
 
+    // Method to delete contact
     public static void deleteContact() {
         System.out.println("Enter the name of address book to delete contact");
         String bookName = scanner.next();
@@ -91,6 +98,7 @@ public class AddressBook {
         }
     }
 
+    // Method to add multiple contacts
     public static void addMultipleContact() {
         System.out.println("Enter the address book name to add multiple contact");
         String bookName = scanner.next();
@@ -103,6 +111,7 @@ public class AddressBook {
         }
     }
 
+    // Method to display the address book details
     public static void showAddressBookDetails() {
         System.out.println("Enter Address Book System Name");
         String bookName = scanner.next();
@@ -112,6 +121,19 @@ public class AddressBook {
             System.out.println("No book found this name");
         } else {
             addressBookSystem.showAddressBookDetails();
+        }
+    }
+
+    // Method to search contact by city or state
+    public static void searchByCityOrState() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookSystem book = addressBookSystemMap.get(bookName);
+        AddressBookSystem addressBookSystem = new AddressBookSystem();
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBookSystem.searchContactDetails();
         }
     }
 }
