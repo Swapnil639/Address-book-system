@@ -31,6 +31,7 @@ public class AddressBookFileIO {
             Files.write(Paths.get(ADDRESS_BOOK_FILE_NAME), empBuffer.toString().getBytes());
         } catch (IOException e) {
             e.printStackTrace();
+
         }
     }
 }

@@ -150,6 +150,7 @@ public class AddressBook {
             System.out.println("No book found with these name");
         } else {
             addressBook.sortingByCity();
+
         }
     }
 }

@@ -20,5 +20,6 @@ public class AddressBookClassTest {
     public void readTheContactDetails() {
         AddressBookClass addressBookClass = new AddressBookClass();
         addressBookClass.readContactDetails(AddressBookClass.IOService.FILE_IO);
+
     }
 }
