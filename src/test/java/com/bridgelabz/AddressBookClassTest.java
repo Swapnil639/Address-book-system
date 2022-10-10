@@ -8,8 +8,8 @@ public class AddressBookClassTest {
     @Test
     public void givenContactDetails() {
         Contacts[] array = {
-                new Contacts("A", "Sr", "Atp", "Atp", "Ap", "sr@", "515701", "8919584625"),
-                new Contacts("A", "J", "M", "M", "M", "Av@", "574165", "9059463010"),
+                new Contacts("S", "Pa", "Atp", "Atp", "Ap", "sw@", "515701", "8919584625"),
+                new Contacts("A", "Pa", "M", "M", "M", "Ap@", "574165", "9059463010"),
         };
         AddressBookClass addressBookClass;
         addressBookClass = new AddressBookClass(Arrays.asList(array));
