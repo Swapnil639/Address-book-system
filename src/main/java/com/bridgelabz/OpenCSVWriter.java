@@ -1,5 +1,6 @@
 package com.bridgelabz;
 
+import com.google.gson.Gson;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 
@@ -11,13 +12,14 @@ import java.util.List;
 
 public class OpenCSVWriter {
     private static final String ADDRESS_BOOK_CSV_FILE = "Z:\\LFP_Java fellowship - 187\\Address-book-system\\address-book-CSV.csv";
-
+    private static final String ADDRESS_BOOK_GSON_FILE ="address_book.json";
     public static void main(String[] args) throws CsvException, IOException {
         writeCsvFile();
         readCsvFile();
+        writeTheGsonFile();
     }
 
-    private static void readCsvFile() throws IOException {
+    private static void readCsvFile() throws IOException, CsvException {
         Reader reader = Files.newBufferedReader(Paths.get(ADDRESS_BOOK_CSV_FILE));
         CSVReader csvReader = new CSVReader(reader);
         List<String[]> csvUser = csvReader.readAll();
@@ -30,8 +32,8 @@ public class OpenCSVWriter {
             System.out.println("Zip : " + contact[5]);
             System.out.println("Phone Number : " + contact[6]);
             System.out.println("Email id " + contact[7]);
-            System.out.println("*****************************************");
-            System.out.println("*****************************************");
+            System.out.println("******************************");
+            System.out.println("******************************");
         }
     }
 
@@ -47,7 +49,14 @@ public class OpenCSVWriter {
         }
         writer2.close();
     }
-
-
+    public static void writeTheGsonFile() throws IOException, CsvException {
+        Reader reader = Files.newBufferedReader(Paths.get(ADDRESS_BOOK_CSV_FILE));
+        CSVReader csvReader = new CSVReader(reader);
+        List<String[]> csvUser = csvReader.readAll();
+        Gson gson = new Gson();
+        String json = gson.toJson(csvUser);
+        FileWriter writer = new FileWriter(ADDRESS_BOOK_GSON_FILE);
+        writer.write(json);
+        writer.close();
+    }
 }
-
