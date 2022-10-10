@@ -17,7 +17,7 @@ public class OpenCSVWriter {
         readCsvFile();
     }
 
-    private static void readCsvFile() throws IOException, CsvException {
+    private static void readCsvFile() throws IOException {
         Reader reader = Files.newBufferedReader(Paths.get(ADDRESS_BOOK_CSV_FILE));
         CSVReader csvReader = new CSVReader(reader);
         List<String[]> csvUser = csvReader.readAll();
@@ -30,7 +30,8 @@ public class OpenCSVWriter {
             System.out.println("Zip : " + contact[5]);
             System.out.println("Phone Number : " + contact[6]);
             System.out.println("Email id " + contact[7]);
-            System.out.println("===============================");
+            System.out.println("*****************************************");
+            System.out.println("*****************************************");
         }
     }
 
@@ -46,5 +47,7 @@ public class OpenCSVWriter {
         }
         writer2.close();
     }
+
+
 }
 
